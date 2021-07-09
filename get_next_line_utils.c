@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 14:18:52 by jvictor-          #+#    #+#             */
-/*   Updated: 2021/07/09 17:12:26 by jvictor-         ###   ########.fr       */
+/*   Updated: 2021/07/09 19:14:15 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 {
 	size_t			total_size;
 	unsigned char	*allocated;
-	int				i;
+	size_t				i;
 
 	total_size = size * nmemb;
 	allocated = (unsigned char *)malloc(total_size);
@@ -49,7 +49,7 @@ int	ft_strchr_GNL(char *s, char c)
 	return (HAVNT_BRK_LINE);
 }
 
-size_t	ft_strlen(const char *str)
+size_t	ft_strlen(char *str)
 {
 	size_t		i;
 
@@ -61,7 +61,7 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	int		i;
 	int		j;
@@ -89,7 +89,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (concat);
 }
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char *s, unsigned int start, size_t len)
 {
 	size_t			i;
 	unsigned int	s_len;
