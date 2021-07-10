@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 14:18:39 by jvictor-          #+#    #+#             */
-/*   Updated: 2021/07/09 20:04:56 by jvictor-         ###   ########.fr       */
+/*   Updated: 2021/07/09 20:35:34 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static	int	read_and_join(int fd, char **buf_of_read,
 	while (*bytes && ft_strchr_GNL(*buf_of_line, '\n') == HAVNT_BRK_LINE)
 	{
 		*bytes = read(fd, *buf_of_line, BUFFER_SIZE);
-		*buf_of_line[*bytes] = '\0';
+		(*buf_of_line)[*bytes] = '\0';
 		if (*bytes < 0 || *bytes > BUFFER_SIZE)
 		{
 			free(*buf_of_line);
@@ -79,7 +79,7 @@ int	get_next_line(int fd, char **line)
 		if (!buf_of_read)
 			return (GNL_ERROR);
 	}
-	buf_of_line = (char *)ft_calloc(BUFFER_SIZE + 1, sizeof(char));
+	buf_of_line = (char *)ft_calloc(sizeof(char), BUFFER_SIZE + 1);
 	if (!buf_of_line)
 		return (GNL_ERROR);
 	verification = read_and_join(fd, &buf_of_read, &buf_of_line, &bytes);

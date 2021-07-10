@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 14:18:52 by jvictor-          #+#    #+#             */
-/*   Updated: 2021/07/09 19:14:15 by jvictor-         ###   ########.fr       */
+/*   Updated: 2021/07/09 21:13:01 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	j = 0;
 	if (!s1 || !s2)
 		return (NULL);
-	concat = (char *)malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
+	concat = (char *)ft_calloc(sizeof(char), (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!concat)
 		return (NULL);
 	while (s1[i])
@@ -97,7 +97,7 @@ char	*ft_substr(char *s, unsigned int start, size_t len)
 
 	if (!s)
 		return (NULL);
-	i = 0;
+	i = -1;
 	s_len = ft_strlen(s);
 	if (s_len < start)
 	{
@@ -112,7 +112,7 @@ char	*ft_substr(char *s, unsigned int start, size_t len)
 		substr = (char *)ft_calloc(sizeof(char), (len + 1));
 	if (!substr)
 		return (NULL);
-	while (i++ < len)
+	while (++i < len)
 		substr[i] = s[i + start];
 	return (substr);
 }
