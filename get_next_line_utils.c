@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 14:18:52 by jvictor-          #+#    #+#             */
-/*   Updated: 2021/07/09 21:13:01 by jvictor-         ###   ########.fr       */
+/*   Updated: 2021/07/10 01:38:29 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 {
 	size_t			total_size;
 	unsigned char	*allocated;
-	size_t				i;
+	size_t			i;
 
 	total_size = size * nmemb;
 	allocated = (unsigned char *)malloc(total_size);
@@ -49,9 +49,9 @@ int	ft_strchr_GNL(char *s, char c)
 	return (HAVNT_BRK_LINE);
 }
 
-size_t	ft_strlen(char *str)
+int	ft_strlen(char *str)
 {
-	size_t		i;
+	int		i;
 
 	i = 0;
 	while (str[i] != '\0')
@@ -69,9 +69,7 @@ char	*ft_strjoin(char *s1, char *s2)
 
 	i = 0;
 	j = 0;
-	if (!s1 || !s2)
-		return (NULL);
-	concat = (char *)ft_calloc(sizeof(char), (ft_strlen(s1) + ft_strlen(s2) + 1));
+	concat = (char *)ft_calloc(sizeof(char), ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (!concat)
 		return (NULL);
 	while (s1[i])
@@ -91,28 +89,26 @@ char	*ft_strjoin(char *s1, char *s2)
 
 char	*ft_substr(char *s, unsigned int start, size_t len)
 {
-	size_t			i;
-	unsigned int	s_len;
-	char			*substr;
+	char	*sub;
+	size_t	size_s;
+	size_t	max_len;
 
-	if (!s)
+	size_s = ft_strlen(s);
+	if (s == NULL)
 		return (NULL);
-	i = -1;
-	s_len = ft_strlen(s);
-	if (s_len < start)
+	if (size_s < start)
 	{
-		substr = (char *)ft_calloc(sizeof(char), 1);
-		if (!substr)
+		sub = (char *)ft_calloc(sizeof(char), 1);
+		if (!sub)
 			return (NULL);
-		return (substr);
+		return (sub);
 	}
-	if (len > ft_strlen(s + start))
-		substr = (char *)ft_calloc(sizeof(char), (ft_strlen(s + start)) + 1);
-	else
-		substr = (char *)ft_calloc(sizeof(char), (len + 1));
-	if (!substr)
+	max_len = size_s - start;
+	if (len > max_len)
+		len = max_len;
+	sub = (char *)ft_calloc(sizeof(char), len + 1);
+	if (!sub)
 		return (NULL);
-	while (++i < len)
-		substr[i] = s[i + start];
-	return (substr);
+	ft_strlcpy(sub, &s[start], len + 1);
+	return (sub);
 }

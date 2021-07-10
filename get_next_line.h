@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 14:32:21 by jvictor-          #+#    #+#             */
-/*   Updated: 2021/07/09 19:13:07 by jvictor-         ###   ########.fr       */
+/*   Updated: 2021/07/10 00:29:04 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ char	*ft_strjoin(char*s1, char *s2);
  * @param str String to be counted.
  * @return size_t Number of characters of the (*str).
  */
-size_t	ft_strlen(char *str);
+int		ft_strlen(char *str);
 
 /**
  * @brief Allocates (with malloc(3)) and returns a substring from the string (*s)
@@ -83,5 +83,7 @@ size_t	ft_strlen(char *str);
 char	*ft_substr(char *s, unsigned int start, size_t len);
 
 int	get_next_line(int fd, char **line);
+
+size_t	ft_strlcpy(char *dst, char *src, size_t size);
 
 #endif
