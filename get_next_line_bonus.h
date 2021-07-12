@@ -6,7 +6,7 @@
 /*   By: jvictor- <jvictor-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 14:32:21 by jvictor-          #+#    #+#             */
-/*   Updated: 2021/07/11 13:15:39 by jvictor-         ###   ########.fr       */
+/*   Updated: 2021/07/12 20:23:57 by jvictor-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int		ft_strlen(char *str);
  */
 char	*ft_substr(char *s, unsigned int start, size_t len);
 
-int	get_next_line(int fd, char **line);
+int		get_next_line(int fd, char **line);
 
 size_t	ft_strlcpy(char *dst, char *src, size_t size);
 
